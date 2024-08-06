@@ -1,24 +1,23 @@
 'use client'
 
 import React from 'react'
-import Image from '../bg.svg'
-import { useFormik } from 'formik'
+import Image from '../hero.png';
+import { useFormik } from 'formik';
 
-const SignUp = () => {
-  
-  const signupForm = useFormik({
+const Login = () => {
+
+  const loginForm = useFormik({
     initialValues : {
       email : "",
       password : "",
-      confirmPassword : "",
     },
-    onSubmit: (values) => {
+    onSubmit : (values) => {
       console.log(values);
     }
-});
-  
+  })
+
   return (
-   
+    <>
   <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
     <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
       <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
@@ -55,30 +54,22 @@ const SignUp = () => {
                 Or sign Up with VizSchema E-mail
               </div>
             </div>
-            <form className="mx-auto max-w-xs" onSubmit={signupForm.handleSubmit}>
+            <form className="mx-auto max-w-xs" onSubmit={loginForm.handleSubmit}>
               <input
                 id='email'
-                onChange={signupForm.handleChange}
-                value={signupForm.values.email}
+                onChange= {loginForm.handleChange}
+                value = {loginForm.values.email}
                 className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                 type="email"
                 placeholder="Email"
               />
               <input
-              id='password'
-              onChange={signupForm.handleChange}
-              value={signupForm.values.password}
+                id='password'
+                onChange={loginForm.handleChange}
+                value={loginForm.values.password}
                 className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                 type="password"
                 placeholder="Password"
-              />
-              <input
-              id='confirmPassword'
-              onChange={signupForm.handleChange}
-              value={signupForm.values.confirmPassword}
-                className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                type="password"
-                placeholder="Confirm Password"
               />
               <button className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" type='submit'>
                 <svg
@@ -93,10 +84,10 @@ const SignUp = () => {
                   <circle cx="8.5" cy={7} r={4} />
                   <path d="M20 8v6M23 11h-6" />
                 </svg>
-                <span className="ml-">Sign Up</span>
+                <span className="ml-">Sign In</span>
               </button>
               <p className="mt-6 text-xs text-gray-600 text-center">
-                I agree to abide by VizSchema
+              I agree to abide by VizSchema
                 <a href="#" className="border-b border-gray-500 border-dotted">
                   Terms of Service
                 </a>
@@ -111,15 +102,14 @@ const SignUp = () => {
       </div>
       <div className="flex-1 bg-green-100 text-center hidden lg:flex">
         <div
-          className="m-12 xl:m-16 w-10/12 h-10/12 bg-contain bg-center bg-no-repeat"
+          className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
           
-        ><img className='w-11/12 h-10/12' src={Image.src} alt="" /></div>
+        ><img src={Image.src} alt="" /></div>
       </div>
     </div>
   </div>
-
-
+</>
   )
 }
 
-export default SignUp
+export default Login

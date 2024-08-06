@@ -31,7 +31,7 @@ export default function Home() {
                 d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
               />
             </svg>
-            LANDING
+            VizSchema
           </a>
         </div>
         <div className="block lg:hidden pr-4">
@@ -94,14 +94,14 @@ export default function Home() {
       <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         {/*Left Col*/}
         <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-          <p className="uppercase tracking-loose w-full">
+          {/* <p className="uppercase tracking-loose w-full">
             What business are you?
-          </p>
+          </p> */}
           <h1 className="my-4 text-5xl font-bold leading-tight">
-            Main Hero Message to sell yourself!
+          Visualize Your Database Schemas Effortlessly!
           </h1>
           <p className="leading-normal text-2xl mb-8">
-            Sub-hero message, not too long and not too short. Make it just right!
+          Transform complex database structures into clear, interactive visualizations.!
           </p>
           <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Subscribe
@@ -831,7 +831,7 @@ export default function Home() {
         <div className="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t " />
       </div>
       <h3 className="my-4 text-3xl leading-tight">
-        Main Hero Message to sell yourself!
+        The Visual DataBase Design & Management Tool!
       </h3>
       <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
         Action!
