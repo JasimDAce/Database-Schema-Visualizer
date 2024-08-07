@@ -3,6 +3,22 @@
 import React from 'react'
 import Image from '../bg.svg'
 import { useFormik } from 'formik'
+import * as Yup from "yup";
+
+
+const SignUpSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref("password"), null],
+    "Passwords must match"
+  ),
+  password: Yup.string()
+    .required("Please Enter your password")
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    )
+});
 
 const SignUp = () => {
   
@@ -14,7 +30,7 @@ const SignUp = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-    }
+    },validationSchema : SignUpSchema,
 });
   
   return (
@@ -64,6 +80,11 @@ const SignUp = () => {
                 type="email"
                 placeholder="Email"
               />
+              {signupForm.touched.email && (
+                    <p className=" text-xs text-red-600 mt-2" id="email-error">
+                      {signupForm.errors.email}
+                    </p>
+              )}
               <input
               id='password'
               onChange={signupForm.handleChange}
@@ -72,6 +93,11 @@ const SignUp = () => {
                 type="password"
                 placeholder="Password"
               />
+              {signupForm.touched.password && (
+                    <p className=" text-xs text-red-600 mt-2" id="email-error">
+                      {signupForm.errors.password}
+                    </p>
+                  )}
               <input
               id='confirmPassword'
               onChange={signupForm.handleChange}
@@ -80,6 +106,11 @@ const SignUp = () => {
                 type="password"
                 placeholder="Confirm Password"
               />
+              {signupForm.touched.confirmPassword && (
+                    <p className=" text-xs text-red-600 mt-2" id="email-error">
+                      {signupForm.errors.confirmPassword}
+                    </p>
+                  )}
               <button className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" type='submit'>
                 <svg
                   className="w-6 h-6 -ml-2"

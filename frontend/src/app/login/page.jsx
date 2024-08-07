@@ -3,6 +3,18 @@
 import React from 'react'
 import Image from '../hero.png';
 import { useFormik } from 'formik';
+import * as Yup from "yup";
+
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string()
+    .required("Please Enter your password")
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    )
+});
 
 const Login = () => {
 
@@ -13,7 +25,7 @@ const Login = () => {
     },
     onSubmit : (values) => {
       console.log(values);
-    }
+    },validationSchema: LoginSchema,
   })
 
   return (
@@ -63,6 +75,11 @@ const Login = () => {
                 type="email"
                 placeholder="Email"
               />
+              {loginForm.touched.email && (
+                    <p className=" text-xs text-red-600 mt-2" id="email-error">
+                      {loginForm.errors.email}
+                    </p>
+                  )}
               <input
                 id='password'
                 onChange={loginForm.handleChange}
@@ -71,6 +88,11 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
               />
+               {loginForm.touched.password && (
+                    <p className=" text-xs text-red-600 mt-2" id="password-error">
+                      {loginForm.errors.password}
+                    </p>
+                  )}
               <button className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" type='submit'>
                 <svg
                   className="w-6 h-6 -ml-2"
